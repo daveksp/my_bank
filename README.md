@@ -1,3 +1,5 @@
+[![Sonar](https://github.com/daveksp/my_bank/actions/workflows/sonar.yml/badge.svg)](https://github.com/daveksp/my_bank/actions/workflows/sonar.yml)
+
 ABOUT THIS PROJECT:
 
 - This project uses Flask, marshmallow, sqlalchemy and Mysql.
