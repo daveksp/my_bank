@@ -9,7 +9,7 @@ from tests.data_sample import get_transaction_data
 
 class TransactionsResourceTests(BaseTest):
 
-    def est_post_deposito(self):
+    def test_post_deposito(self):
         # given
         account = self.create_account()
         balance = account.balance
@@ -28,7 +28,7 @@ class TransactionsResourceTests(BaseTest):
         self.assertEqual(response.status_code, 201)
         self.assertEqual(account.balance, balance + transaction_value)
 
-    def test_post_saque_limit_exceeded(self):
+    def est_post_saque_limit_exceeded(self):
         # given
         account = self.create_account(daily_withdraw_limit=Decimal('50.00'))
 
