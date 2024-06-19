@@ -39,7 +39,6 @@ jobs:
       run: |
         coverage run --source app -m pytest -s tests/
 
-jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
