@@ -86,6 +86,6 @@ jobs:
           aws_key_id: ${{secrets.AWS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: dkspinheiro.com
-          source_dir: /home/runner/work/my_bank/docs/index.html
+          source_dir: /home/runner/work/my_bank/my_bank/coverage-unit/coverage.xml
       - name: Link To Report
         run: echo "https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/index.html"
