@@ -64,28 +64,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  Documentation:
-    name: Publish Documenation
-    timeout-minutes: 120
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Download coverage reports
-        uses: actions/download-artifact@v4
-      - name: Upload Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: HTML_Report
-          path: cypress/reports/Result
-      - name: Upload S3    
-        uses: shallwefootball/s3-upload-action@master
-        id: S3
-        with:
-          aws_key_id: ${{secrets.AWS_KEY_ID}}
-          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: dkspinheiro.com
-          source_dir: /home/runner/work/my_bank/my_bank/coverage-unit/coverage.xml
-      - name: Link To Report
-        run: echo "https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/index.html"
