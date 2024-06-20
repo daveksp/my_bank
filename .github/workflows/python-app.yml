@@ -38,7 +38,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        tox -e py
+        coverage run --source app -m pytest -s tests/
+        coverage xml
     - name: Store coverage report
       uses: actions/upload-artifact@v4
       with:
