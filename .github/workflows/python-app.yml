@@ -64,7 +64,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  Publish Documentation:
+  Documentation:
+    name: Publish Documenation
     timeout-minutes: 120
     runs-on: ubuntu-latest
     steps:
