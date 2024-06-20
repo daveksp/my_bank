@@ -56,6 +56,8 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Download coverage reports
         uses: actions/download-artifact@v4
+      - name: Override Coverage Source Path for Sonar
+        run: sed -i "s/<source>\/home\/runner\/work\/my_bank<\/source>/<source>\/github\/workspace<\/source>/g" /home/runner/work/my_bank/coverage-unit/coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
